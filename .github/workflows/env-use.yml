@@ -1,0 +1,18 @@
+name: ENV use Demo
+
+on:
+  push:
+
+env:
+  NODE_ENV: production
+  PORT: 3000
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show variables
+        run: |
+          echo "Environment: $NODE_ENV"
+          echo "Port: $PORT"
