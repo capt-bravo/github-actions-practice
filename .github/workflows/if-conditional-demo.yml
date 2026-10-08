@@ -1,0 +1,19 @@
+name: If conditional
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    environment: production
+
+    steps:
+      - name: Check prod environment
+        if: vars.APP_ENV == 'production'
+        run: echo "This is the production environment"
+
+      - name: Check dev environment
+        if: vars.APP_ENV == 'development'
+        run: echo "This is the development environment"
