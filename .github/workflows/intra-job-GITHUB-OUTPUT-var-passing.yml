@@ -1,0 +1,18 @@
+name: Intra job Github output var passing
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate value
+        id: generate
+        run: |
+          echo "message=Hello from Github Actions" >> "$GITHUB_OUTPUT"
+
+      - name: Use output
+        run: |
+          echo "Message: ${{ steps.generate.outputs.message }}"
