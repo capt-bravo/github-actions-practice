@@ -6,6 +6,9 @@ on:
 jobs:
   producer:
     runs-on: ubuntu-latest
+    
+    outputs:
+      message: ${{ steps.generate.outputs.message }}
 
     steps:
       - name: Generate value
