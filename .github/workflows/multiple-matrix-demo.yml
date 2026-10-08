@@ -1,4 +1,4 @@
-name: Matrix CI
+name: Multiple Matrix CI
 
 on:
   push:
