@@ -1,0 +1,23 @@
+name: Inter job var passing
+
+on:
+  push:
+
+jobs:
+  producer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate value
+        id: generate
+        run: |
+          echo "message=Hello from producer" >> "$GITHUB_OUTPUT"
+
+  consumer:
+    needs: producer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use producer output
+        run: |
+          echo "Message: ${{ needs.producer.outputs.message }}"
