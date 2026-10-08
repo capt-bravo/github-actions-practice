@@ -1,0 +1,17 @@
+name: Intra job ENV passing
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set env variable
+        run: |
+          echo "APP_ENV=production" >> "$GITHUB_ENV"
+  
+      - name: Use env variable
+        run: |
+          echo "Running in $APP_ENV environment"
